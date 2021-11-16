@@ -1,3 +1,14 @@
+/*
+Joshua Miller
+ITD2
+11/16/2021
+Employee Tracker
+*/
+
+
+
+
+
 class Employee{
   constructor(name,age){
     this.name= name;
@@ -26,7 +37,7 @@ class FullTime extends Employee{
     this.employeeType="Full Time";
   }
   calculatePay(){
-    let annualSalary = (this.payRate*this.hours)*52-1000;
+    this.annualSalary = (this.payRate*this.hours)*52-1000;
   }
 }
 
@@ -34,12 +45,13 @@ class Main{
   constructor(){
     console.log("Main Created"); 
     this.employeeArray=[];
-    const partTime = new PartTime("Josh",32,"50000",15,35,"PartTime");
+    const partTime = new PartTime("Josh",32,15,35,"PartTime");
     const partTime2 = new PartTime("Jeff",33,"75000",18,38,"PartTime");
     const partTime3 = new PartTime("Aaron",38,"15000",11,12,"PartTime");
     this.employeeArray.push(partTime3);
     this.employeeArray.push(partTime2);
     this.employeeArray.push(partTime);
+    this.employeeArray.sort;
     this.menuStart();
     }
 
@@ -90,7 +102,11 @@ class Main{
       }
       
       editEmployee(){
-        console.log("edit Employees here");
+        let edit;
+        edit = prompt("Enter Employee Name and updated PayRate" + "[Separated by a Comma]");
+        let editInput = edit.split(",");
+        this.employeeArray.splice(editInput);
+        console.log(this.employeeArray);
         this.menuStart();      
       }
       displayEmployee(){
